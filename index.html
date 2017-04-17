@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>定时器和简单的动画</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #fff;
+            width: 100%;
+            height: 100%;
+
+        }
+
+        span {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    /**
+     *    setTimeout;
+     *    setInterval;
+     *     定时器的返回值就是一个数字
+     */
+
+    // var timer=setInterval();//timer值是代表的数字
+
+    //clearInterval(parameter);//参数只需要传入一个一个数字就可以清楚页面中的第几个元素
+
+    // timer=null;//代表的是timer这个变量不代表1了，不是清楚定时器的作用
+
+
+    //str[0]   当没有拿到的时候是返回的是undefined
+    //str.charAt(i);//没有拿到的是null
+
+
+    var body = document.body;
+
+    str = "考都快扫积分城市的驾驶舱内山东省农村科技少年扫积分才开始农村";
+    var index = 0;
+    var timer = window.setInterval(function () {
+        var reg = /[扫积分]/g;
+        body.innerHTML += str.charAt(index).replace(/[扫积分]/g, function () {
+            return "<span>" + arguments[0] + "</span>"
+        });
+        index++;
+        if (index == str.length) {
+            window.clearInterval(timer);
+        }
+    }, 500);
+</script>
+</body>
+</html>
